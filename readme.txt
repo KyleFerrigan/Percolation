@@ -3,7 +3,7 @@
  *  NetID: kbferrigan
  *  Precept:  
  *
- *  Partner Name:    N/A
+ *  Partner Name:    Patrick
  *  Partner NetID:   N/A
  *  Partner Precept: N/A
  * 
@@ -12,7 +12,7 @@
  *  Text editor / IDE: JetBrains IntelliJ IDEA
  *
  *  Have you taken (part of) this course before:
- *
+ *  No
  *  Hours to complete assignment (optional):
  *
  ******************************************************************************/
