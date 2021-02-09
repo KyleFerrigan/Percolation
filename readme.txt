@@ -3,8 +3,8 @@
  *  NetID: kbferrigan
  *  Precept:  
  *
- *  Partner Name:    Patrick
- *  Partner NetID:   N/A
+ *  Partner Name:    Patrick Galati
+ *  Partner NetID:   pagalati
  *  Partner Precept: N/A
  * 
  *  Operating system: MacOS
