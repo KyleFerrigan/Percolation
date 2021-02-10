@@ -19,7 +19,7 @@ public class Percolation {
         try {
             grid[i][j] = true; //Opens site
         }
-        catch (IndexOutofBoundsException e) {
+        catch (java.lang.IndexOutOfBoundsException e) {
             System.out.println("Outside prescribed range");
         }
     }
@@ -28,8 +28,9 @@ public class Percolation {
         try {
             return grid[i][j]; //returns bool if its open
         }
-        catch (IndexOutofBoundsException e) {
+        catch (java.lang.IndexOutOfBoundsException e) {
             System.out.println("Outside prescribed range");
+            return false;
         }
     }
 
@@ -39,8 +40,9 @@ public class Percolation {
 
             return false;//placeholder
         }
-        catch (IndexOutofBoundsException e) {
+        catch (java.lang.IndexOutOfBoundsException e) {
             System.out.println("Outside prescribed range");
+            return false;
         }
     }
 
