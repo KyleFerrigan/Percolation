@@ -96,9 +96,9 @@ public class Percolation {
 
         //Opens a set number of sites randomly
         int max = p.max;
-        int numberOfSitesToOpen = 200;
+        int numSiteOpen = 200;//Number of sites to open
         int i = 0;
-        while (i<numberOfSitesToOpen){
+        while (i<numSiteOpen){
             int rand1 = ((int)(Math.random() * (max + 1)));
             int rand2 = ((int)(Math.random() * (max + 1)));
             if (!p.isOpen(rand1,rand2)){
@@ -106,7 +106,7 @@ public class Percolation {
                 i++;
             }
         }
-        
+
         System.out.println("Percolates? " + p.percolates());
 
     }
