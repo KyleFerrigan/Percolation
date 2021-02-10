@@ -4,13 +4,23 @@ public class PercolationStats
     
     public PercolationStats(int N, int T) { // perform T independent experiments on an N-by-N grid
         try {
+            //Monte Carlo Simulation
+            System.out.println("Monte Carlo Simulation Started");
+            //Initialize all sites to be blocked
             grid = new double [T];
             for(int i=0; i<T; i++) {
-                Percolation p = new Percolation(N);
-
+                PercolationWQUF p = new PercolationWQUF(N);
+                while (!p.percolates()){
+                    int rand1 = ((int)(Math.random() * (N)));
+                    int rand2 = ((int)(Math.random() * (N)));
+                if (!p.isOpen(rand1,rand2)){
+                    p.open(rand1,rand2);
+                    i++;
+                }
+            }
+            //Monte Carlo Simulation End
             }
         }
-
         catch (java.lang.IllegalArgumentException e) {
             if (N<=0) {
                 System.out.println("N cannot be less than or equal to 0");
