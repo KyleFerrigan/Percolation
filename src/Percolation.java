@@ -17,7 +17,7 @@ public class Percolation {
             }
         }
 
-        max = N-1; //Max size of array (minus one because arrays start at 0
+        max = N-1; //Max size of array (minus one because arrays start at 0)
         qFind = new QuickFindUF(N); //Creates a QuickfindUF instance with max size of N
     }
 
