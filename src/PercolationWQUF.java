@@ -2,7 +2,7 @@ public class PercolationWQUF {
 
     private boolean[][] grid;//Array that holds grid of open or closed sites
     private int loopMax;
-    private QuickFindUF qFind;
+    private WeightedQuickUnionUF wqFind;
 
     public PercolationWQUF(int N) { //create N-by-N grid, with all sites blocked
         try {
@@ -19,7 +19,7 @@ public class PercolationWQUF {
         }
 
         loopMax = N-1; //Max size of array (minus one because arrays start at 0)
-        qFind = new QuickFindUF(((loopMax +2) * (loopMax +1)) + (loopMax +1)); //Creates a QuickFindUF instance with max size of N
+        wqFind = new WeightedQuickUnionUF(((loopMax +2) * (loopMax +1)) + (loopMax +1)); //Creates a QuickFindUF instance with max size of N
     }
 
     public void open(int i, int j){ //open site (row i, column j) if it is not open already
@@ -48,7 +48,7 @@ public class PercolationWQUF {
             }
 
             for(int k = 0; k< loopMax; k++){
-                if (qFind.connected(arrayID(i,j), arrayID(0,k))){
+                if (wqFind.connected(arrayID(i,j), arrayID(0,k))){
                     return true;
                 }
             }
@@ -77,7 +77,7 @@ public class PercolationWQUF {
         for(int i = 0; i< loopMax; i++){ //Horizontal Linking
             for(int j = 0; j< loopMax; j++){
                 if(isOpen(i,j) && isOpen(i+1,j)){ //if two open sites are next to each other horizontally
-                    qFind.union(arrayID(i,j), arrayID(i+1,j));
+                    wqFind.union(arrayID(i,j), arrayID(i+1,j));
                 }
             }
         }
@@ -85,7 +85,7 @@ public class PercolationWQUF {
         for(int i = 0; i< loopMax; i++){ //Vertical Linking
             for(int j = 0; j< loopMax; j++){
                 if(isOpen(i,j) && isOpen(i,j+1)){ //if two open sites are next to each other vertically
-                    qFind.union(arrayID(i,j), arrayID(i,j+1));
+                    wqFind.union(arrayID(i,j), arrayID(i,j+1));
                 }
             }
         }
