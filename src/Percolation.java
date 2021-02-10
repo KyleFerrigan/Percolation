@@ -89,20 +89,24 @@ public class Percolation {
     public int arrayID(int y, int x) { //Convert the 2d array indices to 1d array index
         return (((max+1) * (y-1)) + (x-1));
     }
-    
+
     public static void main(String[] args){
         System.out.println("Percolation Started");
         Percolation p = new Percolation(20);
 
-        //TODO open random sites about here I think?
+        //Opens a set number of sites randomly
         int max = p.max;
-        int min = 0;
-        int numberOfSitesToOpen = 100;
-        for (int i = 0; i<numberOfSitesToOpen; i++){
-            p.open((int)(Math.random() * (max - min + 1) + min), (int)(Math.random() * (max - min + 1) + min));
+        int numberOfSitesToOpen = 200;
+        int i = 0;
+        while (i<numberOfSitesToOpen){
+            int rand1 = ((int)(Math.random() * (max + 1)));
+            int rand2 = ((int)(Math.random() * (max + 1)));
+            if (!p.isOpen(rand1,rand2)){
+                p.open(rand1,rand2);
+                i++;
+            }
         }
-
-
+        
         System.out.println("Percolates? " + p.percolates());
 
     }
