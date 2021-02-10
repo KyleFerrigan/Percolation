@@ -1,19 +1,24 @@
 public class Percolation {
 
-    boolean[][] grid;//Array that holds grid of open or closed sites
-    int max;
+    private boolean[][] grid;//Array that holds grid of open or closed sites
+    private int max;
+    private QuickFindUF qFind;
+
     public Percolation(int N) { //create N-by-N grid, with all sites blocked
         try {
             grid = new boolean[N][N];
         } catch (IllegalArgumentException e) {
             System.out.println("N cannot be less than or equal to 0");
         }
+
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 grid[i][j] = false; //False means blocked, all sites blocked with this command
             }
         }
-        max = N-1;
+
+        max = N-1; //Max size of array (minus one because arrays start at 0
+        qFind = new QuickFindUF(N); //Creates a QuickfindUF instance with max size of N
     }
 
     public void open(int i, int j){ //open site (row i, column j) if it is not open already
@@ -64,22 +69,18 @@ public class Percolation {
         return false; //if no full sites found this will execute
     }
 
-    public void connectQuickFindHorizontal(){
-        QuickFindUF qFind = new QuickFindUF(max+1);
-        for(int i = 0; i<max-1; i++){
+    public void populateQuickFind(){ //connects together sites that are both open if they are next to each other
+        for(int i = 0; i<max-1; i++){//Horizontal Linking
             for(int j = 0; j<max; j++){
-                if(isOpen(i,j)&&isOpen(i+1,j)){
-                    qFind.connected(i,j);//put your function here instead of this one
+                if(isOpen(i,j)&&isOpen(i+1,j)){//if two open sites are next to each other horizontally
+                    //TODO put your function here
                 }
             }
         }
-    }
-    public void connectQuickFindVertical(){
-        QuickFindUF qFind = new QuickFindUF(max+1);
-        for(int i = 0; i<max; i++){
+        for(int i = 0; i<max; i++){//Vertical Linking
             for(int j = 0; j<max-1; j++){
-                if(isOpen(i,j)&&isOpen(i,j+1)){
-                    qFind.connected(i,j);//put your function here instead of this one
+                if(isOpen(i,j)&&isOpen(i,j+1)){//if two open sites are next to each other vertically
+                    //TODO put your function here
                 }
             }
         }
