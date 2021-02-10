@@ -46,8 +46,12 @@ public class Percolation {
                 return false;
             }
             //TODO check if site is in component that contains a site in top row
-
-            return false;//Placeholder TODO REMOVE
+            for(int k = 0; k<max; k++){
+                if (qFind.connected(arrayID(i,j),arrayID(0,k))){
+                    return true;
+                }
+            }
+            return false;
         }
 
         catch (java.lang.IndexOutOfBoundsException e) {
@@ -58,10 +62,9 @@ public class Percolation {
 
     public boolean percolates(){ //does the system percolate?
         //Check bottom sites for a site that is open, if so call isFull
-        int size = grid.length;
-        for (int i = 0; i<size; i++) {
-            if (isOpen(size-1,i)){ //if bottom site is open
-                if(isFull(size-1,i)){ //if bottom site is full, this is more expensive so checking if its open first makes more sense
+        for (int i = 0; i<=max; i++) {
+            if (isOpen(max,i)){ //if bottom site is open
+                if(isFull(max,i)){ //if bottom site is full, this is more expensive so checking if its open first makes more sense
                     return true; //if bottom site is full it means it will percolate, no more sites need to be tested.
                 }
             }
