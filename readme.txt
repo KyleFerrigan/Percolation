@@ -1,18 +1,18 @@
 /******************************************************************************
  *  Name: Kyle Ferrigan
  *  NetID: kbferrigan
- *  Precept:  
+ *  Precept:  N/A
  *
- *  Partner Name:    Patrick Galati
- *  Partner NetID:   pagalati
+ *  Partner Name: Patrick Galati
+ *  Partner NetID: pagalati
  *  Partner Precept: N/A
  * 
- *  Operating system: MacOS
- *  Compiler: JetBrains IntelliJ IDEA
- *  Text editor / IDE: JetBrains IntelliJ IDEA
+ *  Operating system: Kyle: MacOS; Patrick:
+ *  Compiler: Kyle: JetBrains IntelliJ IDEA; Patrick:
+ *  Text editor / IDE: Kyle: JetBrains IntelliJ IDEA; Patrick:
  *
  *  Have you taken (part of) this course before:
- *  No
+ *  Kyle: No; Patrick:
  *  Hours to complete assignment (optional):
  *
  ******************************************************************************/

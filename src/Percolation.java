@@ -17,10 +17,14 @@ public class Percolation {
 
         return false;//placeholder
     }
-    
+
     public boolean percolates(){ //does the system percolate?
 
         return false; //placeholder
+    }
+
+    public static void main(String args[]){
+        System.out.println("hello world");
     }
 }
 
