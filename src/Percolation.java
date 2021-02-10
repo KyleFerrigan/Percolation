@@ -64,12 +64,22 @@ public class Percolation {
         return false; //if no full sites found this will execute
     }
 
-    public void fillQuickFindRight(){
+    public void connectQuickFindHorizontal(){
         QuickFindUF qFind = new QuickFindUF(max+1);
         for(int i = 0; i<max-1; i++){
             for(int j = 0; j<max; j++){
                 if(isOpen(i,j)&&isOpen(i+1,j)){
-                    qFind.connected(i,j);
+                    qFind.connected(i,j);//put your function here instead of this one
+                }
+            }
+        }
+    }
+    public void connectQuickFindVertical(){
+        QuickFindUF qFind = new QuickFindUF(max+1);
+        for(int i = 0; i<max; i++){
+            for(int j = 0; j<max-1; j++){
+                if(isOpen(i,j)&&isOpen(i,j+1)){
+                    qFind.connected(i,j);//put your function here instead of this one
                 }
             }
         }
