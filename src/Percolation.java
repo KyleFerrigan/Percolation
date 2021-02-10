@@ -92,9 +92,17 @@ public class Percolation {
     
     public static void main(String[] args){
         System.out.println("Percolation Started");
-        //TODO open random sites about here I think?
-
         Percolation p = new Percolation(20);
+
+        //TODO open random sites about here I think?
+        int max = p.max;
+        int min = 0;
+        int numberOfSitesToOpen = 100;
+        for (int i = 0; i<numberOfSitesToOpen; i++){
+            p.open((int)(Math.random() * (max - min + 1) + min), (int)(Math.random() * (max - min + 1) + min));
+        }
+
+
         System.out.println("Percolates? " + p.percolates());
 
     }
