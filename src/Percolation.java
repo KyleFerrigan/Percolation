@@ -7,7 +7,8 @@ public class Percolation {
     public Percolation(int N) { //create N-by-N grid, with all sites blocked
         try {
             grid = new boolean[N][N];
-        } catch (IllegalArgumentException e) {
+        }
+        catch (IllegalArgumentException e) {
             System.out.println("N cannot be less than or equal to 0");
         }
 
@@ -45,7 +46,7 @@ public class Percolation {
             if(!isOpen(i,j)){//if site isn't open it cannot be full
                 return false;
             }
-            //TODO check if site is in component that contains a site in top row
+
             for(int k = 0; k<max; k++){
                 if (qFind.connected(arrayID(i,j), arrayID(0,k))){
                     return true;
@@ -80,6 +81,7 @@ public class Percolation {
                 }
             }
         }
+
         for(int i = 0; i<max; i++){ //Vertical Linking
             for(int j = 0; j<max; j++){
                 if(isOpen(i,j) && isOpen(i,j+1)){ //if two open sites are next to each other vertically
@@ -110,6 +112,7 @@ public class Percolation {
                 i++;
             }
         }
+
         p.populateQuickFind();
 
         System.out.println("Percolates? " + p.percolates());
