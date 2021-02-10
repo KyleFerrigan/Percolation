@@ -86,6 +86,10 @@ public class Percolation {
         }
     }
 
+    public int arrayID(int y, int x) { //Convert the 2d array indices to 1d array index
+        return max * (y-1) + (x-1);
+    }
+    
     public static void main(String args[]){
         System.out.println("Percolation Started");
         Percolation p = new Percolation(20);
