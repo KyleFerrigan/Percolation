@@ -1,7 +1,7 @@
 public class Percolation {
 
     boolean[][] grid;//Array that holds grid of open or closed sites
-
+    int max;
     public Percolation(int N) { //create N-by-N grid, with all sites blocked
         try {
             grid = new boolean[N][N];
@@ -13,6 +13,7 @@ public class Percolation {
                 grid[i][j] = false; //False means blocked, all sites blocked with this command
             }
         }
+        max = N-1;
     }
 
     public void open(int i, int j){ //open site (row i, column j) if it is not open already
@@ -36,36 +37,11 @@ public class Percolation {
 
     public boolean isFull(int i, int j) { //is site (row i, column j) full?
         try {
-            //TODO check sites around the given site and find a route to the top, if unable to do so return false
-            int size = grid.length;
-            //check what edge we are on
-            if (j == size - 1) {//check if on the bottom row
-                if (i == size - 1) {//bottom right
-
-                }
-                else if (i == 0) {//bottom left
-
-                }
-                else {// bottom somewhere in the middle aisles
-
-                }
+            if(isOpen(i,j)==false){//if site isnt open it cannot be full
+                return false;
             }
+            //TODO check if site is in component that contains a site in top row
 
-            else if (j == 0) { //top row
-                return isOpen(i, j);//if in top row always full if its open
-            }
-
-            else {//in the middle rows
-                if (i == 0) {//site is on left aisle
-
-                }
-                else if (i == size - 1) {//site is on right aisle
-
-                }
-                else {//site is not on an edge
-
-                }
-            }
 
         }
 
@@ -86,6 +62,17 @@ public class Percolation {
             }
         }
         return false; //if no full sites found this will execute
+    }
+
+    public void fillQuickFindRight(){
+        QuickFindUF qFind = new QuickFindUF(max+1);
+        for(int i = 0; i<max-1; i++){
+            for(int j = 0; j<max; j++){
+                if(isOpen(i,j)&&isOpen(i+1,j)){
+                    qFind.connected(i,j);
+                }
+            }
+        }
     }
 
     public static void main(String args[]){
