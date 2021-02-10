@@ -1,5 +1,7 @@
 public class Percolation {
-    boolean[][] grid;
+
+    boolean[][] grid;//Grid array that holds grid
+
     public Percolation(int N){ //create N-by-N grid, with all sites blocked
         grid = new boolean[N][N];
         for (int i = 0; i<N; i++){
