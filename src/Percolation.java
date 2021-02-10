@@ -18,7 +18,7 @@ public class Percolation {
         }
 
         max = N-1; //Max size of array (minus one because arrays start at 0)
-        qFind = new QuickFindUF(N); //Creates a QuickFindUF instance with max size of N
+        qFind = new QuickFindUF(((max+2) * (max+1)) + (max+1)); //Creates a QuickFindUF instance with max size of N
     }
 
     public void open(int i, int j){ //open site (row i, column j) if it is not open already
@@ -76,21 +76,21 @@ public class Percolation {
         for(int i = 0; i<max-1; i++){ //Horizontal Linking
             for(int j = 0; j<max; j++){
                 if(isOpen(i,j) && isOpen(i+1,j)){ //if two open sites are next to each other horizontally
-                    qFind.connected(arrayID(i,j), arrayID(i+1,j));
+                    qFind.union(arrayID(i,j), arrayID(i+1,j));
                 }
             }
         }
         for(int i = 0; i<max; i++){ //Vertical Linking
             for(int j = 0; j<max-1; j++){
                 if(isOpen(i,j) && isOpen(i,j+1)){ //if two open sites are next to each other vertically
-                    qFind.connected(arrayID(i,j), arrayID(i,j+1));
+                    qFind.union(arrayID(i,j), arrayID(i,j+1));
                 }
             }
         }
     }
 
-    public int arrayID(int y, int x) { //Convert the 2d array indices to 1d array index
-        return (((max+1) * (y-1)) + (x-1));
+    public int arrayID(int x, int y) { //Convert the 2d array indices to 1d array index
+        return (((max+1) * (y)) + (x));
     }
 
     public static void main(String[] args){
@@ -99,7 +99,7 @@ public class Percolation {
 
         //Opens a set number of sites randomly
         int max = p.max;
-        int numSiteOpen = 200;//Number of sites to open
+        int numSiteOpen = 400;//Number of sites to open
         int i = 0;
         while (i<numSiteOpen){
             int rand1 = ((int)(Math.random() * (max + 1)));
@@ -109,6 +109,7 @@ public class Percolation {
                 i++;
             }
         }
+        p.populateQuickFind();
 
         System.out.println("Percolates? " + p.percolates());
 
