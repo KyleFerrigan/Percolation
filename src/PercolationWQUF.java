@@ -1,10 +1,10 @@
-public class Percolation {
+public class PercolationWQUF {
 
     private boolean[][] grid;//Array that holds grid of open or closed sites
     private int loopMax;
     private QuickFindUF qFind;
 
-    public Percolation(int N) { //create N-by-N grid, with all sites blocked
+    public PercolationWQUF(int N) { //create N-by-N grid, with all sites blocked
         try {
             grid = new boolean[N][N];
         }
@@ -26,7 +26,7 @@ public class Percolation {
         try {
             grid[i][j] = true; //Opens site
         }
-        catch (java.lang.IndexOutOfBoundsException e) {
+        catch (IndexOutOfBoundsException e) {
             System.out.println("Outside prescribed range");
         }
     }
@@ -35,7 +35,7 @@ public class Percolation {
         try {
             return grid[i][j]; //returns bool if its open
         }
-        catch (java.lang.IndexOutOfBoundsException e) {
+        catch (IndexOutOfBoundsException e) {
             System.out.println("Outside prescribed range");
             return false;
         }
@@ -55,7 +55,7 @@ public class Percolation {
             return false;
         }
 
-        catch (java.lang.IndexOutOfBoundsException e) {
+        catch (IndexOutOfBoundsException e) {
             System.out.println("Outside prescribed range");
             return false;
         }
@@ -101,7 +101,7 @@ public class Percolation {
         //Monte Carlo Simulation
             System.out.println("Monte Carlo Simulation Started");
             //Initialize all sites to be blocked
-            Percolation p = new Percolation(20);
+            PercolationWQUF p = new PercolationWQUF(20);
 
             //Opens a set number of sites randomly
             int max = p.loopMax + 1;
