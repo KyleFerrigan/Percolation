@@ -95,32 +95,5 @@ public class PercolationWQUF {
         int arrID = (((loopMax +1) * (x)) + (y));
         return arrID;
     }
-
-    public static void main(String[] args){
-
-        //Monte Carlo Simulation
-            System.out.println("Monte Carlo Simulation Started");
-            //Initialize all sites to be blocked
-            PercolationWQUF p = new PercolationWQUF(20);
-
-            //Opens a set number of sites randomly
-            int max = p.loopMax + 1;
-            int numSiteOpen = 225; //Number of sites to open
-            int i = 0;
-            while (i<numSiteOpen){
-                int rand1 = ((int)(Math.random() * (max)));
-                int rand2 = ((int)(Math.random() * (max)));
-                if (!p.isOpen(rand1,rand2)){
-                    p.open(rand1,rand2);
-                    i++;
-                }
-            }
-            System.out.println(numSiteOpen + " Sites opened");
-
-            p.populateQuickFind();//Populates QuickFindArray
-
-            System.out.println("Percolates? " + p.percolates());
-        //Monte Carlo Simulation End
-    }
 }
 

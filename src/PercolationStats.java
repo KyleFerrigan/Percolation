@@ -2,16 +2,15 @@ public class PercolationStats
 {
     private double[] grid;
     
-    public PercolationStats(int N, int T)
-    { // perform T independent experiments on an N-by-N grid
+    public PercolationStats(int N, int T) { // perform T independent experiments on an N-by-N grid
         try {
             grid = new double [T];
             for(int i=0; i<T; i++) {
                 Percolation p = new Percolation(N);
 
-                }
             }
         }
+
         catch (java.lang.IllegalArgumentException e) {
             if (N<=0) {
                 System.out.println("N cannot be less than or equal to 0");
@@ -43,5 +42,32 @@ public class PercolationStats
     { //high endpoint of 95% confidence interval
 
         return -1; //placeholder
+    }
+
+    public static void main(String[] args){
+
+        //Monte Carlo Simulation
+        System.out.println("Monte Carlo Simulation Started");
+        //Initialize all sites to be blocked
+        int gridSize=20;
+        PercolationWQUF p = new PercolationWQUF(gridSize);
+
+        //Opens a set number of sites randomly
+        int numSiteOpen = 225; //Number of sites to open
+        int i = 0;
+        while (i<numSiteOpen){
+            int rand1 = ((int)(Math.random() * (gridSize)));
+            int rand2 = ((int)(Math.random() * (gridSize)));
+            if (!p.isOpen(rand1,rand2)){
+                p.open(rand1,rand2);
+                i++;
+            }
+        }
+        System.out.println(numSiteOpen + " Sites opened");
+
+        p.populateQuickFind();//Populates QuickFindArray
+
+        System.out.println("Percolates? " + p.percolates());
+        //Monte Carlo Simulation End
     }
 }
