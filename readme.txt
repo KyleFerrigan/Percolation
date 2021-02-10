@@ -7,12 +7,12 @@
  *  Partner NetID: pagalati
  *  Partner Precept: N/A
  * 
- *  Operating system: Kyle: MacOS; Patrick:
- *  Compiler: Kyle: JetBrains IntelliJ IDEA; Patrick:
- *  Text editor / IDE: Kyle: JetBrains IntelliJ IDEA; Patrick:
+ *  Operating system: Kyle: MacOS; Patrick: Win10
+ *  Compiler: Kyle: JetBrains IntelliJ IDEA; Patrick: Netbeans
+ *  Text editor / IDE: Kyle: JetBrains IntelliJ IDEA; Patrick: Netbeans
  *
  *  Have you taken (part of) this course before:
- *  Kyle: No; Patrick:
+ *  Kyle: No; Patrick: No
  *  Hours to complete assignment (optional):
  *
  ******************************************************************************/
