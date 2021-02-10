@@ -42,12 +42,12 @@ public class Percolation {
 
     public boolean isFull(int i, int j) { //is site (row i, column j) full?
         try {
-            if(isOpen(i,j)==false){//if site isnt open it cannot be full
+            if(isOpen(i,j)==false){//if site isn't open it cannot be full
                 return false;
             }
             //TODO check if site is in component that contains a site in top row
 
-
+            return false;//Placeholder TODO REMOVE
         }
 
         catch (java.lang.IndexOutOfBoundsException e) {
@@ -70,16 +70,16 @@ public class Percolation {
     }
 
     public void populateQuickFind(){ //connects together sites that are both open if they are next to each other
-        for(int i = 0; i<max-1; i++){//Horizontal Linking
+        for(int i = 0; i<max-1; i++){ //Horizontal Linking
             for(int j = 0; j<max; j++){
-                if(isOpen(i,j)&&isOpen(i+1,j)){//if two open sites are next to each other horizontally
+                if(isOpen(i,j) && isOpen(i+1,j)){ //if two open sites are next to each other horizontally
                     //TODO put your function here
                 }
             }
         }
-        for(int i = 0; i<max; i++){//Vertical Linking
+        for(int i = 0; i<max; i++){ //Vertical Linking
             for(int j = 0; j<max-1; j++){
-                if(isOpen(i,j)&&isOpen(i,j+1)){//if two open sites are next to each other vertically
+                if(isOpen(i,j) && isOpen(i,j+1)){ //if two open sites are next to each other vertically
                     //TODO put your function here
                 }
             }
@@ -88,6 +88,8 @@ public class Percolation {
 
     public static void main(String args[]){
         System.out.println("Percolation Started");
+        //TODO open random sites about here I think?
+
         Percolation p = new Percolation(20);
         System.out.println("Percolates? " + p.percolates());
 
