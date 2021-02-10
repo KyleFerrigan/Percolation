@@ -18,7 +18,7 @@ public class Percolation {
         }
 
         max = N-1; //Max size of array (minus one because arrays start at 0)
-        qFind = new QuickFindUF(N); //Creates a QuickfindUF instance with max size of N
+        qFind = new QuickFindUF(N); //Creates a QuickFindUF instance with max size of N
     }
 
     public void open(int i, int j){ //open site (row i, column j) if it is not open already
@@ -42,7 +42,7 @@ public class Percolation {
 
     public boolean isFull(int i, int j) { //is site (row i, column j) full?
         try {
-            if(isOpen(i,j)==false){//if site isn't open it cannot be full
+            if(!isOpen(i,j)){//if site isn't open it cannot be full
                 return false;
             }
             //TODO check if site is in component that contains a site in top row
@@ -73,24 +73,24 @@ public class Percolation {
         for(int i = 0; i<max-1; i++){ //Horizontal Linking
             for(int j = 0; j<max; j++){
                 if(isOpen(i,j) && isOpen(i+1,j)){ //if two open sites are next to each other horizontally
-                    //TODO put your function here
+                    qFind.connected(arrayID(i,j), arrayID(i+1,j));
                 }
             }
         }
         for(int i = 0; i<max; i++){ //Vertical Linking
             for(int j = 0; j<max-1; j++){
                 if(isOpen(i,j) && isOpen(i,j+1)){ //if two open sites are next to each other vertically
-                    //TODO put your function here
+                    qFind.connected(arrayID(i,j), arrayID(i,j+1));
                 }
             }
         }
     }
 
     public int arrayID(int y, int x) { //Convert the 2d array indices to 1d array index
-        return max * (y-1) + (x-1);
+        return (((max+1) * (y-1)) + (x-1));
     }
     
-    public static void main(String args[]){
+    public static void main(String[] args){
         System.out.println("Percolation Started");
         //TODO open random sites about here I think?
 
