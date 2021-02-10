@@ -53,7 +53,7 @@ public class PercolationStats
         PercolationWQUF p = new PercolationWQUF(gridSize);
 
         //Opens a set number of sites randomly
-        int numSiteOpen = 225; //Number of sites to open
+        int numSiteOpen = 200; //Number of sites to open
         int i = 0;
         while (i<numSiteOpen){
             int rand1 = ((int)(Math.random() * (gridSize)));
