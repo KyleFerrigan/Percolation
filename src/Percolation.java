@@ -1,11 +1,11 @@
 public class Percolation {
 
-    boolean[][] grid;//Grid array that holds grid
+    boolean[][] grid;//Array that holds grid of open or closed sites
 
     public Percolation(int N){ //create N-by-N grid, with all sites blocked
         grid = new boolean[N][N];
         for (int i = 0; i<N; i++){
-            for (int j=0; i<N; i++){
+            for (int j=0; j<N; j++){
                 grid[i][j] = false; //False means blocked, all sites blocked with this command
             }
         }
@@ -20,12 +20,12 @@ public class Percolation {
     }
 
     public boolean isFull(int i, int j){ //is site (row i, column j) full?
-
+        //TODO check sites around the given site and find a route to the top, if unable to do so return false
         return false;//placeholder
     }
 
     public boolean percolates(){ //does the system percolate?
-
+        //TODO check bottom sites for a site that is open, if so call isFull
         return false; //placeholder
     }
 
