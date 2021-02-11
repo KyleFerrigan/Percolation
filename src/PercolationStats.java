@@ -59,7 +59,18 @@ public class PercolationStats {
     }
 
     public double stddev(){ //sample standard deviation of percolation threshold
-        return -1;//placeholder todo remove
+        int total = 0;
+        for(int i = 0; i<minPerc.length; i++)
+        {
+            total = total + minPerc[i];
+        }
+        for(int j = 0; j<minPerc.length; j++)
+        {
+            total += Math.pow((minPerc[j]-mean()),2);
+        }
+        double mean = total/(minPerc.length - 1);
+        double stdDev = Math.sqrt(mean);
+        return stdDev;//placeholder todo remove
     }
 
     public double confidenceLow(){ //low  endpoint of 95% confidence interval
