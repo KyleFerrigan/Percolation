@@ -2,12 +2,13 @@ public class PercolationStats {
     
     public PercolationStats(int N, int T) { // perform T independent experiments on an N-by-N grid
         try {
+            int[] minPerc = new int[T+1];
             for (int i = 0; i<T; i++){
-                for (int j = 1; j<N; j++){
+                boolean perc = false;
+                for (int j = 1; !perc; j++){//go through
                     //Monte Carlo Simulation
-                    System.out.println("Monte Carlo Simulation Started");
-                    //Initialize all sites to be blocked
 
+                    //Initialize all sites to be blocked
                     PercolationWQUF p = new PercolationWQUF(N);
 
                     //Opens a set number of sites randomly
@@ -23,13 +24,18 @@ public class PercolationStats {
                         }
                     }
 
-                    System.out.println(numSiteOpen + " Sites opened");
-
                     p.populateQuickFind();//Populates QuickFindArray
 
-                    System.out.println("Percolates? " + p.percolates());//todo if this is yes break loop
+                    if(p.percolates()){
+                        minPerc[i] = j;
+                        perc=true;
+                    }
                     //Monte Carlo Simulation End
                 }
+
+            }
+            for (int l=0;l<T;l++){
+                System.out.println(minPerc[l]);
             }
         }
 
