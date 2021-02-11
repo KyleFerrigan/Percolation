@@ -86,5 +86,8 @@ public class PercolationStats {
         int gridSize = 20;
         PercolationStats perfStats = new PercolationStats(gridSize,numTests);
         System.out.println("Mean: "+perfStats.mean());
+        System.out.println("Standard Deviation: "+perfStats.stddev());
+        System.out.println("Confidence Low: "+perfStats.confidenceLow());
+        System.out.println("Confidence High: "+perfStats.confidenceHigh());
     }
 }
