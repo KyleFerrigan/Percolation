@@ -14,7 +14,7 @@
  *  Have you taken (part of) this course before:
  *  Kyle: No; Patrick: No
  *  Hours to complete assignment (optional):
- *
+ *  8 Hours Each
  ******************************************************************************/
 
 Programming Assignment 1: Percolation
@@ -24,7 +24,7 @@ Programming Assignment 1: Percolation
  *  Describe how you implemented Percolation.java. How did you check
  *  whether the system percolates?
  *****************************************************************************/
-
+ We implemented Percolation.java
 
 
 /******************************************************************************

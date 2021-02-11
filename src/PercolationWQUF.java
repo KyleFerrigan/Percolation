@@ -79,11 +79,6 @@ public class PercolationWQUF {
                 if(isOpen(i,j) && isOpen(i+1,j)){ //if two open sites are next to each other horizontally
                     wqFind.union(arrayID(i,j), arrayID(i+1,j));
                 }
-            }
-        }
-
-        for(int i = 0; i< loopMax; i++){ //Vertical Linking
-            for(int j = 0; j< loopMax; j++){
                 if(isOpen(i,j) && isOpen(i,j+1)){ //if two open sites are next to each other vertically
                     wqFind.union(arrayID(i,j), arrayID(i,j+1));
                 }

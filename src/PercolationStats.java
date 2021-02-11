@@ -8,7 +8,7 @@ public class PercolationStats {
                 for (int j = 1; !perc; j++){//Keep incrementing the number of sites open until it percolates
 
                     //Initialize all sites to be blocked
-                    PercolationWQUF p = new PercolationWQUF(N);//Set this to target Quickfind or WeightedQuickUnion
+                    Percolation p = new Percolation(N);//Set this to target Quickfind or WeightedQuickUnion
 
                     //Opens a set number of sites randomly
                     int numSiteOpen = j; //Number of sites to open
@@ -76,8 +76,8 @@ public class PercolationStats {
     }
 
     public static void main(String[] args){
-        int numTests = 100;
-        int gridSize = 20;
+        int numTests = 50;
+        int gridSize = 15;
 
         Stopwatch timer = new Stopwatch();
         PercolationStats perfStats = new PercolationStats(gridSize,numTests);
@@ -85,6 +85,6 @@ public class PercolationStats {
         System.out.println("Standard Deviation: "+perfStats.stddev());
         System.out.println("Confidence Low: "+perfStats.confidenceLow());
         System.out.println("Confidence High: "+perfStats.confidenceHigh());
-        System.out.println("Elapsed time: " +timer.elapsedTime());
+        System.out.println("Elapsed time: " +timer.elapsedTime()+"seconds");
     }
 }
