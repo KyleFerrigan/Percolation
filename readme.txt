@@ -117,6 +117,36 @@ running time (in seconds) as a function of n and T:  ~
  *
  *  Include the memory for all referenced objects (deep memory).
  **********************************************************************/
+Class-Wide Variables
+    boolean[N][N] grid
+    int loopmax
+    wqfind
+        int count
+        int parent
+        int size
+PercolationWQUF Constructor
+    int N
+    int i
+    int j
+open Function
+    int i
+    int j
+isOpen Function
+    int i
+    int j
+isFull Function
+    int i
+    int j
+    int k
+percolates Function
+    int i
+populateQuickFind Function
+    int i
+    int j
+arrayID Function
+    int x
+    int y
+    int arrID
 
 
 
