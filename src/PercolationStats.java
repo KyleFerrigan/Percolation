@@ -63,13 +63,11 @@ public class PercolationStats {
     }
 
     public double confidenceLow(){ //low  endpoint of 95% confidence interval
-
-        return -1;//placeholder todo remove
+        return (mean()-(1.96*(stddev()/Math.sqrt(minPerc.length-1.0))));
     }
 
     public double confidenceHigh(){ //high endpoint of 95% confidence interval
-
-        return -1; //placeholder todo remove
+        return (mean()+(1.96*(stddev()/Math.sqrt(minPerc.length-1.0))));
     }
 
     public static void main(String[] args){
