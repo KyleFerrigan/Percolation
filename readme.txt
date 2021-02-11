@@ -168,7 +168,7 @@ Percolation.java
         int arrID 4
 
 Total Bytes: (N*N)+4+(4N+24)+(4N+24)+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4 = N^2+8N+164 bytes
- 
+ Altogether it uses this much memory as it also needs to call WeightedQuickUnionUF.java and that requires even more memory.
 /******************************************************************************
  *  Known bugs / limitations.
  *****************************************************************************/
