@@ -17,11 +17,11 @@
  *  8 Hours Each
  ******************************************************************************/
 
-Programming Assignment 1: PercolationQF
+Programming Assignment 1: Percolation
 
 
 /******************************************************************************
- *  Describe how you implemented PercolationQF.java. How did you check
+ *  Describe how you implemented Percolation.java. How did you check
  *  whether the system percolates?
  *****************************************************************************/
  We implemented it by creating a grid of booleans correlating to whether or not they are open. That way it was fast to check if they were open or closed.
@@ -32,7 +32,7 @@ Programming Assignment 1: PercolationQF
 /******************************************************************************
  *  Perform computational experiments to estimate the running time of
  *  PercolationStats.java for values of n and T when implementing
- *  PercolationQF.java with QuickFindUF.java.
+ *  Percolation.java with QuickFindUF.java.
  *
  *  To do so, fill in the two tables below. Each table must have at least
  *  4 data points, ranging in time from around 0.1 seconds to around
@@ -108,7 +108,7 @@ running time (in seconds) as a function of n and T:  ~
 
 
 /**********************************************************************
- *  How much memory (in bytes) does a PercolationQF object (which uses
+ *  How much memory (in bytes) does a Percolation object (which uses
  *  WeightedQuickUnionUF.java) use to store an n-by-n grid? Use the
  *  64-bit memory cost model from Section 1.4 of the textbook and use
  *  tilde notation to simplify your answer. Briefly justify your
@@ -116,7 +116,7 @@ running time (in seconds) as a function of n and T:  ~
  *
  *  Include the memory for all referenced objects (deep memory).
  **********************************************************************/
-PercolationQF.java
+Percolation.java
     Class-Wide Variables
         boolean[N][N] grid
         int loopmax
@@ -130,8 +130,19 @@ PercolationQF.java
                 int i
             count Function
                 none
-
-
+            find Function
+                int p
+            connected function
+                int p
+                int q
+            validate function
+                int p
+                int n
+            union function
+                int p
+                int q
+                int rootP
+                int rootQ
     Percolation Constructor
         int N
         int i
