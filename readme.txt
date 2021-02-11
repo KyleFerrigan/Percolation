@@ -24,7 +24,10 @@ Programming Assignment 1: Percolation
  *  Describe how you implemented Percolation.java. How did you check
  *  whether the system percolates?
  *****************************************************************************/
- We implemented Percolation.java
+ We implemented it by creating a grid of booleans correlating to whether or not they are open. That way it was fast to check if they were open or closed.
+ We used the QuickFind and QuickWeightedUnion to help us determine if a given site was full or not by converting the coordinates into a 1 dimensional identifier referencing if they were in the same component or not.
+ If the site was in the same component as a site in the top row it is determined to be full.
+ To find if it percolates we searched the bottom row for an open site and then tried to determine if it was full, if so, the system percolates.
 
 
 /******************************************************************************
