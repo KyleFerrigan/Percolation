@@ -2,7 +2,7 @@ public class Percolation {
 
     private boolean[][] grid;//Array that holds grid of open or closed sites
     private int loopMax;
-    private QuickFindUF qFind;
+    private WeightedQuickUnionUF wqFind;
 
     public Percolation(int N) { //create N-by-N grid, with all sites blocked
         try {
@@ -19,14 +19,14 @@ public class Percolation {
         }
 
         loopMax = N-1; //Max size of array (minus one because arrays start at 0)
-        qFind = new QuickFindUF(((loopMax +2) * (loopMax +1)) + (loopMax +1)); //Creates a QuickFindUF instance with max size of N
+        wqFind = new WeightedQuickUnionUF(((loopMax +2) * (loopMax +1)) + (loopMax +1)); //Creates a QuickFindUF instance with max size of N
     }
 
     public void open(int i, int j){ //open site (row i, column j) if it is not open already
         try {
             grid[i][j] = true; //Opens site
         }
-        catch (java.lang.IndexOutOfBoundsException e) {
+        catch (IndexOutOfBoundsException e) {
             System.out.println("Outside prescribed range");
         }
     }
@@ -35,7 +35,7 @@ public class Percolation {
         try {
             return grid[i][j]; //returns bool if its open
         }
-        catch (java.lang.IndexOutOfBoundsException e) {
+        catch (IndexOutOfBoundsException e) {
             System.out.println("Outside prescribed range");
             return false;
         }
@@ -48,14 +48,14 @@ public class Percolation {
             }
 
             for(int k = 0; k< loopMax; k++){
-                if (qFind.connected(arrayID(i,j), arrayID(0,k))){
+                if (wqFind.connected(arrayID(i,j), arrayID(0,k))){
                     return true;
                 }
             }
             return false;
         }
 
-        catch (java.lang.IndexOutOfBoundsException e) {
+        catch (IndexOutOfBoundsException e) {
             System.out.println("Outside prescribed range");
             return false;
         }
@@ -77,16 +77,13 @@ public class Percolation {
         for(int i = 0; i< loopMax; i++){ //Horizontal Linking
             for(int j = 0; j< loopMax; j++){
                 if(isOpen(i,j) && isOpen(i+1,j)){ //if two open sites are next to each other horizontally
-                    qFind.union(arrayID(i,j), arrayID(i+1,j));
+                    wqFind.union(arrayID(i,j), arrayID(i+1,j));
                 }
                 if(isOpen(i,j) && isOpen(i,j+1)){ //if two open sites are next to each other vertically
-                    qFind.union(arrayID(i,j), arrayID(i,j+1));
+                    wqFind.union(arrayID(i,j), arrayID(i,j+1));
                 }
             }
         }
-
-
-
     }
 
     public int arrayID(int x, int y) { //Convert the 2d array indices to 1d array index

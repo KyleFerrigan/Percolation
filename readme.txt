@@ -17,11 +17,11 @@
  *  8 Hours Each
  ******************************************************************************/
 
-Programming Assignment 1: Percolation
+Programming Assignment 1: PercolationQF
 
 
 /******************************************************************************
- *  Describe how you implemented Percolation.java. How did you check
+ *  Describe how you implemented PercolationQF.java. How did you check
  *  whether the system percolates?
  *****************************************************************************/
  We implemented it by creating a grid of booleans correlating to whether or not they are open. That way it was fast to check if they were open or closed.
@@ -32,7 +32,7 @@ Programming Assignment 1: Percolation
 /******************************************************************************
  *  Perform computational experiments to estimate the running time of
  *  PercolationStats.java for values of n and T when implementing
- *  Percolation.java with QuickFindUF.java.
+ *  PercolationQF.java with QuickFindUF.java.
  *
  *  To do so, fill in the two tables below. Each table must have at least
  *  4 data points, ranging in time from around 0.1 seconds to around
@@ -108,7 +108,7 @@ running time (in seconds) as a function of n and T:  ~
 
 
 /**********************************************************************
- *  How much memory (in bytes) does a Percolation object (which uses
+ *  How much memory (in bytes) does a PercolationQF object (which uses
  *  WeightedQuickUnionUF.java) use to store an n-by-n grid? Use the
  *  64-bit memory cost model from Section 1.4 of the textbook and use
  *  tilde notation to simplify your answer. Briefly justify your
@@ -116,36 +116,45 @@ running time (in seconds) as a function of n and T:  ~
  *
  *  Include the memory for all referenced objects (deep memory).
  **********************************************************************/
-Class-Wide Variables
-    boolean[N][N] grid
-    int loopmax
-    wqfind
-        int count
-        int parent
-        int size
-PercolationWQUF Constructor
-    int N
-    int i
-    int j
-open Function
-    int i
-    int j
-isOpen Function
-    int i
-    int j
-isFull Function
-    int i
-    int j
-    int k
-percolates Function
-    int i
-populateQuickFind Function
-    int i
-    int j
-arrayID Function
-    int x
-    int y
-    int arrID
+PercolationQF.java
+    Class-Wide Variables
+        boolean[N][N] grid
+        int loopmax
+        wqfind (WeightedQuickUnionUF.java instance)
+            Class-Wide Variables
+                int[n] parent
+                int[n] size
+                int count
+            WeightedQuickUnionUF Constructor
+                int n
+                int i
+            count Function
+                none
+
+
+    Percolation Constructor
+        int N
+        int i
+        int j
+    open Function
+        int i
+        int j
+    isOpen Function
+        int i
+        int j
+    isFull Function
+        int i
+        int j
+        int k
+    percolates Function
+        int i
+    populateQuickFind Function
+        int i
+        int j
+    arrayID Function
+        int x
+        int y
+        int arrID
 
 
 
