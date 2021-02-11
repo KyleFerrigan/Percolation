@@ -3,19 +3,18 @@ public class PercolationStats {
     public PercolationStats(int N, int T) { // perform T independent experiments on an N-by-N grid
         try {
             int[] minPerc = new int[T+1];
-            for (int i = 0; i<T; i++){
-                boolean perc = false;
-                for (int j = 1; !perc; j++){//go through
-                    //Monte Carlo Simulation
+            for (int i = 0; i<T; i++){//run this many tests
+                boolean perc = false;//this value is true if the loop below has percolated, resets on every loop above
+                for (int j = 1; !perc; j++){//Keep incrementing the number of sites open until it percolates
 
                     //Initialize all sites to be blocked
-                    PercolationWQUF p = new PercolationWQUF(N);
+                    PercolationWQUF p = new PercolationWQUF(N);//Set this to target Quickfind or WeightedQuickUnion
 
                     //Opens a set number of sites randomly
                     int numSiteOpen = j; //Number of sites to open
 
                     int k = 0;
-                    while (k<numSiteOpen){//opens up random
+                    while (k<numSiteOpen){//opens up random sites, but only if they are closed, will not open any site already open
                         int rand1 = ((int)(Math.random() * (N)));
                         int rand2 = ((int)(Math.random() * (N)));
                         if (!p.isOpen(rand1,rand2)){
@@ -24,13 +23,13 @@ public class PercolationStats {
                         }
                     }
 
-                    p.populateQuickFind();//Populates QuickFindArray
+                    p.populateQuickFind();//Populates QuickFindArray or WeightedQuickUnion depending on what is set above.
 
                     if(p.percolates()){
-                        minPerc[i] = j;
-                        perc=true;
+                        minPerc[i] = j;//sets the min value it took to percolate
+                        perc=true;//sentinel value, breaks loop
                     }
-                    //Monte Carlo Simulation End
+
                 }
 
             }
