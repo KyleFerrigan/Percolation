@@ -118,70 +118,61 @@ running time (in seconds) as a function of n and T:  ~
  **********************************************************************/
 Percolation.java
     Class-Wide Variables
-        boolean[N][N] grid
-        int loopmax
+        boolean[N][N] grid - N*N
+        int loopmax - 4
         wqfind (WeightedQuickUnionUF.java instance)
             Class-Wide Variables
-                int[n] parent
-                int[n] size
-                int count
+                int[n] parent - 4N+24
+                int[n] size - 4N+24
+                int count 4
             WeightedQuickUnionUF Constructor
-                int n
-                int i
+                int n 4
+                int i 4
             count Function
                 none
             find Function
-                int p
+                int p 4
             connected function
-                int p
-                int q
+                int p 4
+                int q 4
             validate function
-                int p
-                int n
+                int p 4
+                int n 4
             union function
-                int p
-                int q
-                int rootP
-                int rootQ
+                int p 4
+                int q 4
+                int rootP 4
+                int rootQ 4
     Percolation Constructor
-        int N
-        int i
-        int j
+        int N 4
+        int i 4
+        int j 4
     open Function
-        int i
-        int j
+        int i 4
+        int j 4
     isOpen Function
-        int i
-        int j
+        int i 4
+        int j 4
     isFull Function
-        int i
-        int j
-        int k
+        int i 4
+        int j 4
+        int k 4
     percolates Function
-        int i
+        int i 4
     populateQuickFind Function
-        int i
-        int j
+        int i 4
+        int j 4
     arrayID Function
-        int x
-        int y
-        int arrID
+        int x 4
+        int y 4
+        int arrID 4
 
-
-
-
-
-
-
-
-
-
-
+Total Bytes: (N*N)+4+(4N+24)+(4N+24)+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4 = N^2+8N+164 bytes
  
 /******************************************************************************
  *  Known bugs / limitations.
  *****************************************************************************/
-
+No bugs known.
 
 
 
@@ -191,12 +182,12 @@ Percolation.java
  *  include any help from people (including
  *  classmates and friends) and attribute them by name.
  *****************************************************************************/
-
+ N/A
 
 /******************************************************************************
  *  Describe any serious problems you encountered.                    
  *****************************************************************************/
-
+   We had a roadblock trying to find the tilde notation for our program.
 
 
 
