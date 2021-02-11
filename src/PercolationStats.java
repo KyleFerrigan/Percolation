@@ -1,8 +1,8 @@
 public class PercolationStats {
-    
+    int[] minPerc;
     public PercolationStats(int N, int T) { // perform T independent experiments on an N-by-N grid
         try {
-            int[] minPerc = new int[T+1];
+            minPerc = new int[T+1];
             for (int i = 0; i<T; i++){//run this many tests
                 boolean perc = false;//this value is true if the loop below has percolated, resets on every loop above
                 for (int j = 1; !perc; j++){//Keep incrementing the number of sites open until it percolates
@@ -49,26 +49,33 @@ public class PercolationStats {
     }
 
     public double mean(){ //sample mean of percolation threshold
-        return -1; //placeholder
+        int total = 0;
+        double mean = 0.0;
+        for(int i = 0; i< minPerc.length;i++){
+            total = total + minPerc[i];
+        }
+        mean = total/(minPerc.length - 1.0);
+        return mean;
     }
 
     public double stddev(){ //sample standard deviation of percolation threshold
-        return -1;//placeholder
+        return -1;//placeholder todo remove
     }
 
     public double confidenceLow(){ //low  endpoint of 95% confidence interval
 
-        return -1;//placeholder
+        return -1;//placeholder todo remove
     }
 
     public double confidenceHigh(){ //high endpoint of 95% confidence interval
 
-        return -1; //placeholder
+        return -1; //placeholder todo remove
     }
 
     public static void main(String[] args){
         int numTests = 100;
         int gridSize = 20;
         PercolationStats perfStats = new PercolationStats(gridSize,numTests);
+        System.out.println("Mean: "+perfStats.mean());
     }
 }
