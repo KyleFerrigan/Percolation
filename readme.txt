@@ -24,10 +24,7 @@ Programming Assignment 1: Percolation
  *  Describe how you implemented Percolation.java. How did you check
  *  whether the system percolates?
  *****************************************************************************/
- We implemented it by creating a grid of booleans correlating to whether or not they are open. That way it was fast to check if they were open or closed.
- We used the QuickFind and QuickWeightedUnion to help us determine if a given site was full or not by converting the coordinates into a 1 dimensional identifier referencing if they were in the same component or not.
- If the site was in the same component as a site in the top row it is determined to be full.
- To find if it percolates we searched the bottom row for an open site and then tried to determine if it was full, if so, the system percolates.
+ We implemented Percolation.java
 
 
 /******************************************************************************
@@ -40,25 +37,25 @@ Programming Assignment 1: Percolation
  *  60 seconds. Do not include data points that takes less than 0.1 seconds.
  *****************************************************************************/
 
-(keep T constant)
+(keep T constant) - 50
 
  n          time (seconds)
 ------------------------------
-...
-...
-...
-...
+20          0.246 seconds
+25          0.68 seconds 
+40          7.929 seconds
+50          22.598 seconds
 ...
 
 
-(keep n constant)
+(keep n constant) - 50
 
  T          time (seconds)
 ------------------------------
-...
-...
-...
-...
+5           2.326 seconds
+10          4.783 seconds
+20          9.328 seconds
+40          18.764 seconds
 ...
 
 
@@ -83,25 +80,25 @@ running time (in seconds) as a function of n and T:  ~
  *  (instead of QuickFindUF).
  *****************************************************************************/
 
-(keep T constant)
+(keep T constant) - 50
 
  n         time (seconds)
 ------------------------------
-...
-...
-...
-...
+20         0.167 seconds
+25         0.343 seconds
+40         1.792 seconds
+50         4.148 seconds
 ...
 
 
-(keep n constant)
+(keep n constant) - 50
 
  T          time (seconds)
 ------------------------------
-...
-...
-...
-...
+5           0.477 seconds
+10          0.915 seconds
+20          1.761 seconds
+40          3.349 seconds
 ...
 
 
