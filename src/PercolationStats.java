@@ -29,12 +29,7 @@ public class PercolationStats {
                         minPerc[i] = j;//sets the min value it took to percolate
                         perc=true;//sentinel value, breaks loop
                     }
-
                 }
-
-            }
-            for (int l=0;l<T;l++){
-                System.out.println(minPerc[l]);
             }
         }
 
@@ -83,10 +78,13 @@ public class PercolationStats {
     public static void main(String[] args){
         int numTests = 100;
         int gridSize = 20;
+
+        Stopwatch timer = new Stopwatch();
         PercolationStats perfStats = new PercolationStats(gridSize,numTests);
         System.out.println("Mean: "+perfStats.mean());
         System.out.println("Standard Deviation: "+perfStats.stddev());
         System.out.println("Confidence Low: "+perfStats.confidenceLow());
         System.out.println("Confidence High: "+perfStats.confidenceHigh());
+        System.out.println("Elapsed time: " +timer.elapsedTime());
     }
 }
