@@ -44,11 +44,12 @@ Programming Assignment 1: Percolation
  n          time (seconds)
 ------------------------------
 20          0.246 seconds
-25          0.68 seconds 
+25          0.68 seconds
 40          7.929 seconds
 50          22.598 seconds
 ...
 
+Roughly 32x every time we double
 
 (keep n constant) - 50
 
@@ -60,6 +61,7 @@ Programming Assignment 1: Percolation
 40          18.764 seconds
 ...
 
+Roughly 2x every time we double
 
 /******************************************************************************
  *  Using the empirical data from the above two tables, give a formula 
@@ -74,8 +76,7 @@ Programming Assignment 1: Percolation
  *
  *****************************************************************************/
 
-running time (in seconds) as a function of n and T:  ~ 
-
+running time (in seconds) as a function of n and T:  ~
 
 /******************************************************************************
  *  Repeat the previous two questions, but using WeightedQuickUnionUF
@@ -92,6 +93,7 @@ running time (in seconds) as a function of n and T:  ~
 50         4.148 seconds
 ...
 
+~11-12x every time it doubles
 
 (keep n constant) - 50
 
@@ -103,6 +105,7 @@ running time (in seconds) as a function of n and T:  ~
 40          3.349 seconds
 ...
 
+ ~1.9x every time we double
 
 running time (in seconds) as a function of n and T:  ~ 
 
@@ -124,51 +127,52 @@ Percolation.java
             Class-Wide Variables
                 int[n] parent - 4N+24
                 int[n] size - 4N+24
-                int count 4
+                int count - 4
             WeightedQuickUnionUF Constructor
-                int n 4
-                int i 4
+                int n - 4
+                int i - 4
             count Function
                 none
             find Function
-                int p 4
+                int p - 4
             connected function
-                int p 4
-                int q 4
+                int p - 4
+                int q - 4
             validate function
-                int p 4
-                int n 4
+                int p - 4
+                int n - 4
             union function
-                int p 4
-                int q 4
-                int rootP 4
-                int rootQ 4
+                int p - 4
+                int q - 4
+                int rootP - 4
+                int rootQ - 4
     Percolation Constructor
-        int N 4
-        int i 4
-        int j 4
+        int N - 4
+        int i - 4
+        int j - 4
     open Function
-        int i 4
-        int j 4
+        int i - 4
+        int j - 4
     isOpen Function
-        int i 4
-        int j 4
+        int i - 4
+        int j - 4
     isFull Function
-        int i 4
-        int j 4
-        int k 4
+        int i - 4
+        int j - 4
+        int k - 4
     percolates Function
-        int i 4
+        int i - 4
     populateQuickFind Function
-        int i 4
-        int j 4
+        int i - 4
+        int j - 4
     arrayID Function
-        int x 4
-        int y 4
-        int arrID 4
+        int x - 4
+        int y - 4
+        int arrID - 4
 
 Total Bytes: (N*N)+4+(4N+24)+(4N+24)+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4 = N^2+8N+164 bytes
  Altogether it uses this much memory as it also needs to call WeightedQuickUnionUF.java and that requires even more memory.
+
 /******************************************************************************
  *  Known bugs / limitations.
  *****************************************************************************/
