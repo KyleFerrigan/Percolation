@@ -8,7 +8,8 @@ public class PercolationStats {
                 for (int j = 1; !perc; j++){//Keep incrementing the number of sites open until it percolates
 
                     //Initialize all sites to be blocked
-                    Percolation p = new Percolation(N);//Set this to target Quickfind or WeightedQuickUnion
+                    Percolation p = new Percolation(N);//Set this to target Quickfind
+                    //PercolationWQUF p = new PercolationWQUF(N);//Comment for testing for WeightedQuickUnion
 
                     //Opens a set number of sites randomly
                     int numSiteOpen = j; //Number of sites to open
