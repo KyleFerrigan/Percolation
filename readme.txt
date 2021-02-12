@@ -50,6 +50,7 @@ Programming Assignment 1: Percolation
 ...
 
 Roughly 32x every time we double
+ N^4.99 or ~N^5
 
 (keep n constant) - 50
 
@@ -62,6 +63,7 @@ Roughly 32x every time we double
 ...
 
 Roughly 2x every time we double
+T^.9999 or ~T
 
 /******************************************************************************
  *  Using the empirical data from the above two tables, give a formula 
@@ -76,7 +78,7 @@ Roughly 2x every time we double
  *
  *****************************************************************************/
 
-running time (in seconds) as a function of n and T:  ~
+running time (in seconds) as a function of n and T:  ~= Time = (N^5)*T
 
 /******************************************************************************
  *  Repeat the previous two questions, but using WeightedQuickUnionUF
@@ -94,7 +96,7 @@ running time (in seconds) as a function of n and T:  ~
 ...
 
 ~11-12x every time it doubles
-
+N^3.51 or ~N^4
 (keep n constant) - 50
 
  T          time (seconds)
@@ -105,9 +107,10 @@ running time (in seconds) as a function of n and T:  ~
 40          3.349 seconds
 ...
 
- ~1.9x every time we double
+~1.9x every time we double
+T^.93796 or ~T
 
-running time (in seconds) as a function of n and T:  ~ 
+running time (in seconds) as a function of n and T:  ~ = Time = (N^4)*T
 
 
 /**********************************************************************
@@ -171,6 +174,7 @@ Percolation.java
         int arrID - 4
 
 Total Bytes: (N*N)+4+(4N+24)+(4N+24)+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4+4 = N^2+8N+164 bytes
+
  Altogether it uses this much memory as it also needs to call WeightedQuickUnionUF.java and that requires even more memory.
 
 /******************************************************************************
@@ -186,7 +190,7 @@ No bugs known.
  *  include any help from people (including
  *  classmates and friends) and attribute them by name.
  *****************************************************************************/
- N/A
+ For the running time tilde notation we got help on the formula from Eman B. We did the math and calculations ourselves though.
 
 /******************************************************************************
  *  Describe any serious problems you encountered.                    
